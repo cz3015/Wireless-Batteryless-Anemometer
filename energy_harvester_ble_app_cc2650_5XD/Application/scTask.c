@@ -239,103 +239,13 @@ static void SC_processAdc(void)
                                    (uint8_t *)voltageArray, strlen(voltageArray));
 
 
-    //System_printf ("Millivolt: %d\n", TEMP_Vout);
-   //printf("hello\n");
-    //System_flush();
 
-//    // use 2 DIO pins to create 4 cases (00, 01, 10, 11)
-//    // using 4 separate pins is a waste
-//    if(PIN_getOutputValue(IOID_0) == 0 && PIN_getOutputValue(IOID_1) == 0){
-//        connInterval = 1;
-//    }
-//    else if(PIN_getOutputValue(IOID_0) == 0 && PIN_getOutputValue(IOID_1) == 1){
-//        connInterval = 3;
-//    }
-//    else if(PIN_getOutputValue(IOID_0) == 1 && PIN_getOutputValue(IOID_1) == 0){
-//        connInterval = 2;
-//    }
-//    else if(PIN_getOutputValue(IOID_0) == 1 && PIN_getOutputValue(IOID_1) == 1){
-//        connInterval = 4;
-//    }
-//
-//    if(n < connInterval){
-//        n++;
-//    }
-//    // only send data when n = data transmit interval
-//    if(n == connInterval){
-////        // voltage
-////       ADCGain = AUXADCGetAdjustmentGain (AUXADC_REF_FIXED);
-////        ADCOffset = AUXADCGetAdjustmentOffset(AUXADC_REF_FIXED);
-////        adcData[1] = adcData[0]; //Shift previous value
-////        adcData[0] = scifTaskData.compHandle.output.ADCout; //Insert new value
-////        //Adjust for gain and offset errors and convert to uV
-////        adcData[0] = AUXADCAdjustValueForGainAndOffset((int32_t) adcData[0], ADCGain, ADCOffset);
-////        adcData[0] = AUXADCValueToMicrovolts(AUXADC_FIXED_REF_VOLTAGE_NORMAL, (int32_t) adcData[0]);
-////        if(adcData[0] < 10){
-////            itoaAppendStr(voltageArray, adcData[0], "       ");
-////        }
-////        else if( adcData[0] < 100 &&  adcData[0] >= 10){
-////            itoaAppendStr(voltageArray, adcData[0], "      ");
-////        }
-////        else if( adcData[0] < 1000 && adcData[0] >= 100){
-////            itoaAppendStr(voltageArray, adcData[0], "     ");
-////        }
-////        else if( adcData[0] < 10000 && adcData[0] >= 1000){
-////            itoaAppendStr(voltageArray, adcData[0], "    ");
-////        }
-////        else if( adcData[0] < 100000 && adcData[0] >= 10000){
-////            itoaAppendStr(voltageArray, adcData[0], "   ");
-////        }
-////        else if( adcData[0] < 1000000 && adcData[0] >= 100000){
-////            itoaAppendStr(voltageArray, adcData[0], "  ");
-////        }
-////        else if( adcData[0] < 10000000 && adcData[0] >= 1000000){
-////            itoaAppendStr(voltageArray, adcData[0], " ");
-////        }
-////        else{
-////            itoaAppendStr(voltageArray, adcData[0], "");
-////        }
-////        user_enqueueCharDataMsg(APP_MSG_UPDATE_CHARVAL, 0,
-////                                ADC_SERVICE_SERV_UUID, ADC_SERVICE_VCAP,
-////                                (uint8_t *)voltageArray, strlen(voltageArray));
-////
-////        // power
-////        if(adcData[1] < 10){
-////                itoaAppendStr(powerArray, adcData[1], "       ");
-////        }
-////        else if( adcData[1] < 100 &&  adcData[1] >= 10){
-////            itoaAppendStr(powerArray, adcData[1], "      ");
-////        }
-////        else if( adcData[1] < 1000 && adcData[1] >= 100){
-////            itoaAppendStr(powerArray, adcData[1], "     ");
-////        }
-////        else if( adcData[1] < 10000 && adcData[1] >= 1000){
-////            itoaAppendStr(powerArray, adcData[1], "    ");
-////        }
-////        else if( adcData[1] < 100000 && adcData[1] >= 10000){
-////            itoaAppendStr(powerArray, adcData[1], "   ");
-////        }
-////        else if( adcData[1] < 1000000 && adcData[1] >= 100000){
-////            itoaAppendStr(powerArray, adcData[1], "  ");
-////        }
-////        else if( adcData[1] < 10000000 && adcData[1] >= 1000000){
-////            itoaAppendStr(powerArray, adcData[1], " ");
-////        }
-////        else{
-////            itoaAppendStr(powerArray, adcData[1], "");
-////        }
-////        // adcData[0] and adcData[1] needed to calculate power
-////        // calculation will be done in LabView
-////        user_enqueueCharDataMsg(APP_MSG_UPDATE_CHARVAL, 0,
-////                                ADC_SERVICE_SERV_UUID, ADC_SERVICE_NETPWR,
-////                                (uint8_t *)powerArray, strlen(powerArray));
-
-           //obtaining omega
+            //obtaining omega
            PIN_setOutputValue(ledPINHandle, IOID_11, 1);
 
            Task_sleep(25000/Clock_tickPeriod);
 
-    for (n=0; n<=4; n++)   {
+   for (n=0; n<=4; n++)   {
        // PIN_setOutputValue(ledPINHandle, IOID_3, 1);
 
         //LED to show the that the board is powered up
@@ -447,36 +357,6 @@ static void SC_processAdc(void)
                                                 (uint8_t *)GradArray, strlen(GradArray));
                      }
 
-
-       /* char freqArray[10];
-        if(frequency >= 1380000){
-            user_enqueueCharDataMsg(APP_MSG_UPDATE_CHARVAL, 0,
-                                          ADC_SERVICE_SERV_UUID, ADC_SERVICE_FREQ,
-                                          "0", strlen(freqArray));
-        }
-        else if(frequency > 40000 && frequency < 100000){
-            itoaAppendStr(freqArray, frequency, "   ");
-            user_enqueueCharDataMsg(APP_MSG_UPDATE_CHARVAL, 0,
-                                    ADC_SERVICE_SERV_UUID, ADC_SERVICE_FREQ,
-                                    (uint8_t *)freqArray, strlen(freqArray));
-        }
-        else if(frequency >= 100000 && frequency < 1000000){
-            itoaAppendStr(freqArray, frequency, "  ");
-            user_enqueueCharDataMsg(APP_MSG_UPDATE_CHARVAL, 0,
-                                    ADC_SERVICE_SERV_UUID, ADC_SERVICE_FREQ,
-                                    (uint8_t *)freqArray, strlen(freqArray));
-        }
-        else if (frequency >= 1000000 && frequency < 1380000){
-            itoaAppendStr(freqArray, frequency, " ");
-            user_enqueueCharDataMsg(APP_MSG_UPDATE_CHARVAL, 0,
-                                    ADC_SERVICE_SERV_UUID, ADC_SERVICE_FREQ,
-                                    (uint8_t *)freqArray, strlen(freqArray));
-        }
-*/
-
-        // Toggle LED0 (Red) on LP
-            user_toggleLED(0);
-        n = 0;
 
 }
  // SC_processAdc

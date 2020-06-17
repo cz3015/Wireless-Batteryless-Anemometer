@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<project name="FYPfreqslopemergeR2" version="2.4.0.793">
+    <desc><![CDATA[Comparator and timer operation for calculating turbine frequency]]></desc>
+    <pattr name="Apply default power mode">0</pattr>
+    <pattr name="Board">CC2650 LaunchPad</pattr>
+    <pattr name="Chip name">CC2650</pattr>
+    <pattr name="Chip package">QFN48 7x7 RGZ</pattr>
+    <pattr name="Chip revision">-</pattr>
+    <pattr name="Clock in active mode">0</pattr>
+    <pattr name="Code prefix"></pattr>
+    <pattr name="Default power mode">0</pattr>
+    <pattr name="Operating system">TI-RTOS</pattr>
+    <pattr name="Output directory">C:/Users/ASUS/workspace_v8/energy_harvester_ble_app_cc2650_launchxl/Scif</pattr>
+    <pattr name="RTC tick interval (16.16 format)">2000</pattr>
+    <pattr name="Run-time logging UART RX pin"></pattr>
+    <pattr name="Run-time logging UART TX pin"></pattr>
+    <task name="compHandle">
+        <desc><![CDATA[]]></desc>
+        <tattr name="output.ADCout" type="expr" content="struct" scope="task" min="0" max="65535">0</tattr>
+        <tattr name="output.TimeOutHigh" desc="High bits for timer output" type="expr" content="struct" scope="task" min="0" max="65535">0</tattr>
+        <tattr name="output.TimeOutLow" desc="Pulse width for 10 pulses" type="expr" content="struct" scope="task" min="0" max="65535">0</tattr>
+        <tattr name="state.compOut" desc="Output of cont.time comparator" type="expr" content="struct" scope="task" min="0" max="65535">0</tattr>
+        <resource_ref name="ADC" enabled="1"/>
+        <resource_ref name="AON Domain Functionality" enabled="0"/>
+        <resource_ref name="Accumulator-Based Math" enabled="0"/>
+        <resource_ref name="Analog Open-Drain Pins" enabled="0"/>
+        <resource_ref name="Analog Open-Source Pins" enabled="0"/>
+        <resource_ref name="Analog Pins" enabled="1">
+            <io_usage name="V_Turbine_neg" label="Negative turbine voltage">
+                <uattr name="Pin count">0</uattr>
+                <uattr name="Pin/0000">DIO29</uattr>
+                <uattr name="Pin/0001">DIO30</uattr>
+                <uattr name="Pin/0002"></uattr>
+                <uattr name="Pin/0003"></uattr>
+                <uattr name="Pin/0004"></uattr>
+                <uattr name="Pin/0005"></uattr>
+                <uattr name="Pin/0006"></uattr>
+                <uattr name="Pin/0007"></uattr>
+            </io_usage>
+            <io_usage name="V_Turbine_Pos" label="Pos turbine voltage">
+                <uattr name="Pin count">0</uattr>
+                <uattr name="Pin/0000">DIO30</uattr>
+                <uattr name="Pin/0001"></uattr>
+                <uattr name="Pin/0002"></uattr>
+                <uattr name="Pin/0003"></uattr>
+                <uattr name="Pin/0004"></uattr>
+                <uattr name="Pin/0005"></uattr>
+                <uattr name="Pin/0006"></uattr>
+                <uattr name="Pin/0007"></uattr>
+            </io_usage>
+            <io_usage name="ADC_in" label="adc input">
+                <uattr name="Pin count">0</uattr>
+                <uattr name="Pin/0000">DIO27</uattr>
+                <uattr name="Pin/0001"></uattr>
+                <uattr name="Pin/0002"></uattr>
+                <uattr name="Pin/0003"></uattr>
+                <uattr name="Pin/0004"></uattr>
+                <uattr name="Pin/0005"></uattr>
+                <uattr name="Pin/0006"></uattr>
+                <uattr name="Pin/0007"></uattr>
+            </io_usage>
+        </resource_ref>
+        <resource_ref name="COMPA" enabled="1"/>
+        <resource_ref name="COMPA Event Trigger" enabled="0"/>
+        <resource_ref name="COMPB" enabled="0"/>
+        <resource_ref name="COMPB Event Trigger" enabled="0"/>
+        <resource_ref name="Delay Insertion" enabled="1"/>
+        <resource_ref name="Differential Output Pins" enabled="0"/>
+        <resource_ref name="Digital Input Pins" enabled="0"/>
+        <resource_ref name="Digital Open-Drain Pins" enabled="0"/>
+        <resource_ref name="Digital Open-Source Pins" enabled="0"/>
+        <resource_ref name="Digital Output Pins" enabled="0"/>
+        <resource_ref name="Dynamic Power Control" enabled="0"/>
+        <resource_ref name="GPIO Event Trigger" enabled="0"/>
+        <resource_ref name="I2C Master" enabled="0">
+            <rattr name="SCL frequency">0</rattr>
+            <rattr name="SCL stretch timeout">1</rattr>
+            <io_usage>
+                <uattr name="SCL pin/0000"></uattr>
+                <uattr name="SDA pin/0000"></uattr>
+            </io_usage>
+        </resource_ref>
+        <resource_ref name="ISRC" enabled="0"/>
+        <resource_ref name="Math and Logic" enabled="0"/>
+        <resource_ref name="Multi-Buffered Output Data Exchange" enabled="0">
+            <rattr name="Buffer count">2</rattr>
+            <rattr name="Indicate overflow at buffer check">1</rattr>
+            <rattr name="Indicate overflow at buffer switch">0</rattr>
+            <rattr name="Prevent overflow at buffer switch">1</rattr>
+        </resource_ref>
+        <resource_ref name="Peripheral Sharing" enabled="1"/>
+        <resource_ref name="Pulse Counter" enabled="0"/>
+        <resource_ref name="RTC Multi-Event Capture" enabled="0"/>
+        <resource_ref name="RTC-Based Execution Scheduling" enabled="1"/>
+        <resource_ref name="Reference DAC" enabled="0"/>
+        <resource_ref name="Run-Time Logging" enabled="0"/>
+        <resource_ref name="SPI Chip Select" enabled="0"/>
+        <resource_ref name="SPI Data Transfer" enabled="0">
+            <rattr name="Bit rate">0</rattr>
+            <rattr name="MISO configuration when inactive">-1</rattr>
+            <rattr name="MOSI configuration on initialization">0</rattr>
+            <rattr name="MOSI configuration on uninitialization">0</rattr>
+            <rattr name="SCLK configuration on initialization">0</rattr>
+            <rattr name="SCLK configuration on uninitialization">0</rattr>
+            <io_usage>
+                <uattr name="MISO pin/0000"></uattr>
+                <uattr name="MOSI pin/0000"></uattr>
+                <uattr name="SCLK pin/0000"></uattr>
+            </io_usage>
+        </resource_ref>
+        <resource_ref name="Signal Observation" enabled="0"/>
+        <resource_ref name="System CPU Alert" enabled="1"/>
+        <resource_ref name="System Event Trigger" enabled="0"/>
+        <resource_ref name="TDC" enabled="1"/>
+        <resource_ref name="Timer 0" enabled="0"/>
+        <resource_ref name="Timer 0 Event Trigger" enabled="0"/>
+        <resource_ref name="Timer 1" enabled="0"/>
+        <resource_ref name="Timer 1 Event Trigger" enabled="0"/>
+        <resource_ref name="Timer 2" enabled="0"/>
+        <resource_ref name="Timer 2 Event Trigger" enabled="0"/>
+        <resource_ref name="UART Emulator" enabled="0">
+            <rattr name="RX buffer size">64</rattr>
+            <rattr name="Required idle period before enabling RX">11</rattr>
+            <rattr name="TX buffer size">64</rattr>
+            <io_usage>
+                <uattr name="RX pin/0000"></uattr>
+                <uattr name="TX pin/0000"></uattr>
+            </io_usage>
+        </resource_ref>
+        <sccode name="event0" init_power_mode="0"><![CDATA[]]></sccode>
+        <sccode name="event1" init_power_mode="0"><![CDATA[]]></sccode>
+        <sccode name="event2" init_power_mode="0"><![CDATA[]]></sccode>
+        <sccode name="event3" init_power_mode="0"><![CDATA[]]></sccode>
+        <sccode name="execute" init_power_mode="0"><![CDATA[fwAcquirePeripheral(PERIPHERAL_ADC);
+adcSelectGpioInput(AUXIO_A_ADC_IN);
+
+// Enable the ADC, 4.3v fixed ref and 2.73ms sample period
+adcEnableSync(ADC_REF_FIXED, ADC_SAMPLE_TIME_2P73_MS, ADC_TRIGGER_MANUAL);
+
+adcGenManualTrigger(); //trigger ADC
+adcReadFifo(output.ADCout); //Load value into output variable
+adcDisable(); //Turn off ADC to save power
+
+fwReleasePeripheral(PERIPHERAL_ADC);
+
+// Select 24 MHz from RCOSC_HF as TDC counter clock source
+tdcSetCntSource(TDC_CNTSRC_48M_RCOSC);
+
+// Enable COMPA
+compaEnable();
+
+// Select COMPA reference and input
+compaSelectGpioRef(AUXIO_A_V_TURBINE_NEG); //Negative Turbine Voltage
+compaSelectGpioInput(AUXIO_A_V_TURBINE_POS); //Positive Turbine Voltage
+
+//Acquire the TDC so that the MCU does not use it and corrupt any data, THIS IS VITAL
+fwAcquirePeripheral(PERIPHERAL_TDC);
+
+// Enable the TDC with:
+// - Start trigger on the first rising signal edge
+// - Stop trigger on the first subsequent falling signal edge
+tdcSetTriggers(TDC_STARTTRIG_COMPA_HIGH, TDC_STOPTRIG_COMPA_LOW, 0);
+tdcEnable();
+
+// The measurement will start synchronously at the first start trigger
+tdcArm(TDC_START_SYNC);
+
+// Wait for the TDC stop trigger for 100 ms, this limits readable frequency to 5Hz
+tdcWaitUs(100000);
+
+//Check that the TDC has finished and not timed out. A timed out value should be ignored.
+tdcCheckDoneEv(state.compOut);
+
+//If TDC successfully finished and didnt time out, set the output variables to the TDC contents
+if(state.compOut == 1){
+    tdcGetValue(output.TimeOutHigh, output.TimeOutLow);
+}
+
+// Disable TDC and Comp to save power and release TDC so that MCU can use it again if necessary
+tdcDisable();
+fwReleasePeripheral(PERIPHERAL_TDC);
+compaDisable();
+
+
+fwGenAlertInterrupt(); //Alert the MCU that the task is finished and the output data is ready for processing
+
+//Schedule task for next RTC tick, defined in the main code
+fwScheduleTask(1);]]></sccode>
+        <sccode name="initialize" init_power_mode="0"><![CDATA[fwScheduleTask(1);]]></sccode>
+        <sccode name="terminate" init_power_mode="0"><![CDATA[//Could move task alert to here?]]></sccode>
+        <event_trigger active_count="1">0,1,2,3</event_trigger>
+        <tt_iter>while_noalertgen_start,run_execute,while_noalertgen_end</tt_iter>
+        <tt_struct>output.ADCout,output.TimeOutHigh,output.TimeOutLow,state.compOut</tt_struct>
+        <rtl_struct></rtl_struct>
+        <rtl_task_sel en="1" struct_log_list="output"/>
+    </task>
+</project>

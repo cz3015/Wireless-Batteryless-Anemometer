@@ -14,8 +14,8 @@ Import the "energy_harvester" project by going to File > Open Projects from File
 2. Sensor Controller Studio (SCS)
 GUI tool to configure peripheral drivers of the CC2650 Sensor Controllers (ADC, I2C, etc). This tool generates a set of source files which will be integrated into the CCS code. Instructions on how to use SCS can also be found in SimpleLink Academy. 
 
-3. BLE Device Monitor
-Windows application used for monitoring and controlling TI BLE devices. Download link: http://processors.wiki.ti.com/index.php/BLE_Device_Monitor_User_Guide
+3. BLE GUI Tool 1.6.0-140
+Windows application used for monitoring and controlling TI BLE devices. connecting the right com port and the ble values can then be visualised from the console to check the data sent. Download link: https://www.silabs.com/products/development-tools/software/bluegiga-bluetooth-smart-software-stack
 
 4. LabView
 Used for acquisition, visualisation and analysis BLE data. You can install LabView from the College's software hub website and its free for students. You'll need to install the BLE toolkit which contains drivers for the USB BLE dongle. Download link: https://forums.ni.com/t5/Community-Documents/LabVIEW-BLE-Bluetooth-Low-Energy-toolkit/ta-p/3538612?profile.language=en
